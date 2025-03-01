@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSX Desktop</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-image: url('https://source.unsplash.com/1920x1080/?nature,landscape'); /* Replace with your desired background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .dock {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        .dock-item {
+            width: 48px;
+            height: 48px;
+            margin: 0 10px;
+            background-color: #eee;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .dock-item:hover {
+            transform: scale(1.1);
+        }
+
+        .dock-item img {
+            max-width: 32px;
+            max-height: 32px;
+        }
+
+        .window {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 600px;
+            height: 400px;
+            overflow: auto;
+        }
+
+        .window-titlebar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .window-controls {
+            display: flex;
+        }
+
+        .window-controls button {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: none;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .window-controls button.close {
+            background-color: #ff605c;
+        }
+
+        .window-controls button.minimize {
+            background-color: #ffbd44;
+        }
+
+        .window-controls button.maximize {
+            background-color: #00ca4e;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <span>Finder</span>
+        <span></span>
+    </header>
+
+    <div class="dock">
+        <div class="dock-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADISURBVFhH7dYxDoAgDEPR/v8v0Q02hQhQjYQkI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0
