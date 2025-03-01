@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +9,12 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            background-image: url('https://source.unsplash.com/1920x1080/?nature,landscape'); /* Replace with your desired background image */
+            background-image: url('https://source.unsplash.com/1920x1080/?mountain,landscape');
             background-size: cover;
             background-repeat: no-repeat;
             height: 100vh;
-            overflow: hidden; /* Prevent scrolling */
+            overflow: hidden;
+            position: relative;
         }
 
         header {
@@ -55,6 +57,7 @@
             justify-content: center;
             align-items: center;
             transition: transform 0.2s ease-in-out;
+            cursor: pointer;
         }
 
         .dock-item:hover {
@@ -64,6 +67,33 @@
         .dock-item img {
             max-width: 32px;
             max-height: 32px;
+        }
+
+        .desktop-icons {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .desktop-icon {
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .desktop-icon img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 5px;
+        }
+
+        .desktop-icon span {
+            text-align: center;
         }
 
         .window {
@@ -79,6 +109,7 @@
             width: 600px;
             height: 400px;
             overflow: auto;
+            display: none;
         }
 
         .window-titlebar {
@@ -113,7 +144,6 @@
         .window-controls button.maximize {
             background-color: #00ca4e;
         }
-
     </style>
 </head>
 <body>
@@ -123,4 +153,4 @@
     </header>
 
     <div class="dock">
-        <div class="dock-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADISURBVFhH7dYxDoAgDEPR/v8v0Q02hQhQjYQkI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0
+        <div class="dock-item" onclick="openWindow('finder')"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADISURBVFhH7dYxDoAgDEPR/v8v0Q02hQhQjYQkI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0kI0k
