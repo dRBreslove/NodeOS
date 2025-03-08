@@ -1,2 +1,2 @@
 # NodeOS
-The Operating System for the Quantom Computer
+The Operating System for the Quantum Computer
